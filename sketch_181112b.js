@@ -1,43 +1,32 @@
-var r, g, b;
+var img;
+var theta = 0;
 
-function setup() {
-  createCanvas(600, 400);
+var speed;
+
+function setup(){
+  createCanvas(1000, 600, WEBGL);
   r = random(255);
   g = random(255);
   b = random(255);
+  img = loadImage("asset/dealwithit.jpg");
 }
 
-function draw() {
+function draw(){
   background(0);
-  // Draw a circle
-  strokeWeight(2);
-  stroke(r, g, b);
-  fill(r, g, b, 127);
-  ellipse(100, 200, 100, 100);
-  ellipse(300, 200, 100, 100);
-  ellipse(500, 200, 100, 100);
+  deal();
 }
 
-function mousePressed() {
-  var d = dist(mouseX, mouseY, 300, 200);
-  var e = dist(mouseX, mouseY, 100, 200);
-  var f = dist(mouseX, mouseY, 500, 200);
+function deal(){
+   translate(0,-50,0);
+  push();
+    rotateZ(theta * 0.15);
+    rotateX(theta * 0.15);
+    rotateY(theta * 0.15);
+    texture(img);
+    box(200, 200, 200);
+  pop();
+  theta += 0.05;  
   
-  if (e < 50){
-    r = random(255);
-    g = random(255);
-    b = random(255);
-  }
   
-  if (d < 50) {
-    r = random(255);
-    g = random(255);
-    b = random(255);
-  }  
-  
-  if (f < 50){
-    r = random(255);
-    g = random(255);
-    b = random(255);
-  }
 }
+
