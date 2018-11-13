@@ -4,10 +4,7 @@ var theta = 0;
 var speed;
 
 function setup(){
-  createCanvas(1000, 600, WEBGL);
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  createCanvas(1200, 800, WEBGL);
   img = loadImage("asset/dealwithit.jpg");
 }
 
@@ -23,7 +20,7 @@ function deal(){
     rotateX(theta * 0.15);
     rotateY(theta * 0.15);
     texture(img);
-    box(200, 200, 200);
+    box(300, 300, 300);
   pop();
   theta += 0.05;  
   
